@@ -8,11 +8,11 @@ import { AppService } from './app.service';
 })
 
 export class AppComponent {
-    private data: any;
+    private data: JSON[];
 
     constructor(private appService: AppService){
         this.appService.getChannels().subscribe(
-            resp => this.data = resp,
+            resp => this.data = this.processData(resp),
             error => console.log(error)
         );
     }
@@ -28,6 +28,13 @@ export class AppComponent {
         let strTime = hours + ':' + padMinutes + ' ' + ampm + ' - ' +
             (hours+1) + ':' + padMinutes + ' ' + ampm + ' EDT';
         return  strTime;
+    }
+
+    private processData(resp: JSON[]){
+        resp.sort(function (a, b) {
+            return new Date(a.time) - new Date(b.time);
+        });
+        return resp;
     }
 
 }
