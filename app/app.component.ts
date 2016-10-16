@@ -29,11 +29,36 @@ export class AppComponent {
         return  strTime;
     }
 
+
+    private displayDate(dateString: string){
+        let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        let monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August",
+                            "September", "October", "November", "December"];
+
+        let date = new Date(dateString);
+        let day = daysOfWeek[date.getDay()];
+        let month = monthsOfYear[date.getMonth()];
+        let dateOfMonth = date.getDate();
+        let year = date.getFullYear();
+        return day + ', ' + month + ' ' + dateOfMonth + ', ' + year;
+    }
+
     private processData(resp: JSON[]){
         resp.sort(function (a, b) {
             return new Date(a['time']) - new Date(b['time']);
         });
-        return resp;
+
+        let newData = [];
+        let date: Date = new Date();
+        for(let course of resp){
+            let currentDate = new Date(course['time']);
+            if(currentDate.getDate() != date.getDate()){
+                date = currentDate;
+                newData.push({'date': currentDate});
+            }
+            newData.push(course);
+        }
+        return newData;
     }
 
 }
