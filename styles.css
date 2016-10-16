@@ -1,3 +1,10 @@
 body {
     background-color: #f6f6f9;
 }
+
+#loading-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
