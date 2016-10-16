@@ -1,20 +1,24 @@
 <div class="container">
-    <div *ngFor="let d of data" class="row panel panel-default">
+    <div *ngFor="let d of data" class="row">
 
-        <div *ngIf="d.hasOwnProperty('date')" class="panel-body">{{displayDate(d['date'])}}</div>
-        <div *ngIf="d.hasOwnProperty('title')" class="panel-body">
-            <div class="col-xs-1"><img src={{d.subjectPhotoUrl}} class="img-circle"></div>
-            <div class="col-xs-5">
-                <span class="lead">{{d.title}}</span><br><br>
-                <p>{{d.description}}</p>
-            </div>
-            <div class="col-xs-3">
-                <img src={{d.instructorPhotoUrl}} class="img-circle">
-                {{d.instructorName}}
-            </div>
-            <div class="col-xs-3">
-                {{displayTime(d.time)}}
+        <div *ngIf="d.hasOwnProperty('date')" class="panel-heading">{{displayDate(d['date'])}}</div>
+
+        <div *ngIf="d.hasOwnProperty('title')" class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-xs-1"><img src={{d.subjectPhotoUrl}} class="img-circle"></div>
+                <div class="col-xs-5">
+                    <span class="lead">{{d.title}}</span><br><br>
+                    <p>{{d.description}}</p>
+                </div>
+                <div class="col-xs-3">
+                    <img src={{d.instructorPhotoUrl}} class="img-circle">
+                    {{d.instructorName}}
+                </div>
+                <div class="col-xs-3">
+                    {{displayTime(d.time)}}
+                </div>
             </div>
         </div>
+
     </div>
 </div>
