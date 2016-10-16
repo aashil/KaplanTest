@@ -9,3 +9,8 @@
 .row-bottom-margin {
     margin-bottom: 1px;
 }
+
+.course {
+    padding: 0px;
+    margin-left: 0px;
+}
