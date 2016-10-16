@@ -19,9 +19,10 @@ export class AppComponent {
 
     private displayTime(dateString: string){
         let date = new Date(dateString);
-        let hours = date.getHours() % 12;
+        let hours = date.getHours();
         let minutes = date.getMinutes();
         let ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
         hours = hours ? hours : 12; // the hour '0' should be '12'
         let padMinutes = minutes < 10 ? '0'+minutes : minutes;
         let strTime = hours + ':' + padMinutes + ' ' + ampm + ' - ' +
