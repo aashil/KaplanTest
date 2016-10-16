@@ -3,7 +3,7 @@
 
         <div *ngIf="d.hasOwnProperty('date')" class="panel-heading">{{displayDate(d['date'])}}</div>
 
-        <div *ngIf="d.hasOwnProperty('title')" class="panel panel-default">
+        <div *ngIf="d.hasOwnProperty('title')" class="panel panel-default row-bottom-margin">
             <div class="panel-body">
                 <div class="col-xs-1"><img src={{d.subjectPhotoUrl}} class="img-circle"></div>
                 <div class="col-xs-5">

@@ -5,3 +5,7 @@
 .container {
     margin-top: 1.5%;
 }
+
+.row-bottom-margin {
+    margin-bottom: 1px;
+}
