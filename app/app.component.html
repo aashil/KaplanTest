@@ -1,19 +1,28 @@
 <div class="container">
+    <!-- Traverse through all the elements of the 'data' array -->
     <div *ngFor="let d of data" class="row">
 
+        <!--
+            Display the date if data has property date.
+            All the courses on same day fall under this date.
+        -->
         <div *ngIf="d.hasOwnProperty('date')" class="panel-heading">{{displayDate(d['date'])}}</div>
 
+        <!-- Display the course if the data has property title -->
         <div *ngIf="d.hasOwnProperty('title')" class="panel panel-default row-bottom-margin">
             <div class="panel-body">
                 <div class="col-xs-1"><img src={{d.subjectPhotoUrl}} class="img-circle"></div>
+
                 <div class="col-xs-5 course">
                     <span class="lead">{{d.title}}</span><br>
                     <p>{{d.description}}</p>
                 </div>
+
                 <div class="col-xs-3">
                     <img src={{d.instructorPhotoUrl}} class="img-circle">
                     {{d.instructorName}}
                 </div>
+
                 <div class="col-xs-3">
                     {{displayTime(d.time)}}
                 </div>
