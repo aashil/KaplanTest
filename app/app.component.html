@@ -1,15 +1,18 @@
-<h1>Channels under construction...</h1>
-
 <div class="container">
     <div *ngFor="let d of data" class="row panel panel-default">
-        <div class="col-xs-4">
-            {{d.title}}
-        </div>
-        <div class="col-xs-4">
-            <img src={{d.instructorPhotoUrl}} class="img-circle">
-        </div>
-        <div class="col-xs-4">
-            {{d.title}}
+        <div class="panel-body">
+            <div class="col-xs-1"><img src={{d.subjectPhotoUrl}} class="img-circle"></div>
+            <div class="col-xs-5">
+                <span class="lead">{{d.title}}</span><br><br>
+                <p>{{d.description}}</p>
+            </div>
+            <div class="col-xs-3">
+                <img src={{d.instructorPhotoUrl}} class="img-circle">
+                {{d.instructorName}}
+            </div>
+            <div class="col-xs-3">
+                {{d.time}}
+            </div>
         </div>
     </div>
 </div>
