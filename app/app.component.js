@@ -9,15 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var app_service_1 = require('./app.service');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(appService) {
+        var _this = this;
+        this.appService = appService;
+        this.appService.getChannels().subscribe(function (resp) { return _this.data = resp; }, function (error) { return console.log(error); });
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/app.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [app_service_1.AppService])
     ], AppComponent);
     return AppComponent;
 }());
