@@ -1,16 +1,18 @@
 var express = require('express');
+var fs = require('fs');
 var app = express();
-var bodyPaser = require('body-parser');
+var bodyParser = require('body-parser');
+var obj = JSON.parse(fs.readFileSync('data/channel.json', 'utf8'));
 
-app.use(bodyPaser.urlencoded({extended: true}));
-app.use(bodyPaser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 var port = process.env.PORT || 3000;
 
 var router = express.Router();
 
 router.get('/data', function (req, res){
-  res.json({message: 'Channel data sending soon...'});
+  res.json(obj);
 });
 
 app.use('/', router);
