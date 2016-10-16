@@ -9,12 +9,8 @@ var port = process.env.PORT || 3000;
 
 var router = express.Router();
 
-router.get('/', function (req, res){
-  res.json({message: 'hooray! welcome to our api!'});
-});
-
 router.get('/data', function (req, res){
-  res.json({message: 'testing data route'});
+  res.json({message: 'Channel data sending soon...'});
 });
 
 app.use('/', router);

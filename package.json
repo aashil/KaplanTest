@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js && tsc && concurrently \"tsc -w\"",
+    "start": "concurrently \"tsc -w\"  \"lite-server\" \"node app.js\" ",
+    "lite": "lite-server",
     "postinstall": "typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
@@ -36,6 +37,7 @@
   },
   "devDependencies": {
     "concurrently": "^3.0.0",
+    "lite-server": "^2.2.2",
     "typescript": "^2.0.3",
     "typings":"^1.4.0"
   }
