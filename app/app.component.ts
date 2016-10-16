@@ -19,10 +19,9 @@ export class AppComponent {
 
     private displayTime(dateString: string){
         let date = new Date(dateString);
-        let hours = date.getHours();
+        let hours = date.getHours() % 12;
         let minutes = date.getMinutes();
         let ampm = hours >= 12 ? 'pm' : 'am';
-        hours = hours % 12;
         hours = hours ? hours : 12; // the hour '0' should be '12'
         let padMinutes = minutes < 10 ? '0'+minutes : minutes;
         let strTime = hours + ':' + padMinutes + ' ' + ampm + ' - ' +
@@ -32,7 +31,7 @@ export class AppComponent {
 
     private processData(resp: JSON[]){
         resp.sort(function (a, b) {
-            return new Date(a.time) - new Date(b.time);
+            return new Date(a['time']) - new Date(b['time']);
         });
         return resp;
     }
