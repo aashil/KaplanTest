@@ -1,6 +1,6 @@
 <div class="container">
     <!-- Traverse through all the elements of the 'data' array -->
-    <div *ngFor="let d of data" class="row">
+    <div *ngFor="let d of data">
 
         <!--
             Display the date if data has property date.
@@ -11,20 +11,25 @@
         <!-- Display the course if the data has property title -->
         <div *ngIf="d.hasOwnProperty('title')" class="panel panel-default row-bottom-margin">
             <div class="panel-body">
-                <div class="col-xs-1"><img src={{d.subjectPhotoUrl}} class="img-circle"></div>
+                <div class="row">
+                    <div class="col-xs-1"><img src={{d.subjectPhotoUrl}} class="img-circle img-responsive" /></div>
 
-                <div class="col-xs-5 course">
-                    <span class="lead">{{d.title}}</span><br>
-                    <p>{{d.description}}</p>
-                </div>
+                    <div class="col-xs-5 course">
+                        <h4>{{d.title}}</h4>
+                        <p>{{d.description}}</p>
+                    </div>
 
-                <div class="col-xs-3">
-                    <img src={{d.instructorPhotoUrl}} class="img-circle">
-                    {{d.instructorName}}
-                </div>
+                    <div class="col-xs-1">
+                        <img src={{d.instructorPhotoUrl}} class="img-circle img-responsive" />
+                    </div>
 
-                <div class="col-xs-3">
-                    {{displayTime(d.time)}}
+                    <div class="col-xs-2">
+                        <h5>{{d.instructorName}}</h5>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <h5>{{displayTime(d.time)}}</h5>
+                    </div>
                 </div>
             </div>
         </div>
